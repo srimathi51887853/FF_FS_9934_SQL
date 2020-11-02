@@ -3,9 +3,9 @@
 # DAY # :44                                                                        #
 #                                                                                  #
 #                                                                                  #
-#THIS SCRIPT IS USED FOR CREATING THE PATIENT TRACE WHICH HAS TO CREATE THE USER   #
+# THIS SCRIPT IS USED FOR CREATING THE PATIENT TRACE WHICH HAS TO CREATE THE USER  #
 # REGISTRATION,GETTING CLERK DETIALS,DOCTOR DETAILS,PATIENT DETAILS, MEDICINE      #
-#INFORMTION,PRESCRIPTION DETAILS,BILL PAYMENTS.alter                               #
+# INFORMTION,PRESCRIPTION DETAILS,BILL PAYMENTS.alter                              #
 #                                                                                  #
 # AUTHOR: SRIMATHI.M                                                               #
 #                                                                                  #
@@ -29,13 +29,13 @@ MEDICINE_NAME VARCHAR(20),
 EXPIRYDATE DATE NOT NULL,
 PRICE INT NOT NULL);
 CREATE TABLE PRESCRIPTION(ID INT PRIMARY KEY,
+MEDICINE_ID INT,FOREIGN KEY(MEDICINE_ID) REFERENCES MEDICINE(ID),
 MEDICINE_NAME VARCHAR(20)NOT NULL,
 QUANTITY INT, 
-PATIENT_NAME VARCHAR(20) NOT NULL
-REFERENCES USER(id));
+PATIENT_NAME VARCHAR(20) NOT NULL);
 CREATE TABLE BILL(PATIENT_NAME VARCHAR(20) NOT NULL,
-FOREIGN KEY(PATIENT_NAME)
- REFERENCES USER(id),
  MEDICINE_NAME VARCHAR(20) NOT NULL,
-AMOUNT INT NOT NULL,
+ MEDICINE_ID INT,FOREIGN KEY(MEDICINE_ID) REFERENCES MEDICINE(ID),
+ PRESCRIPTION_ID INT,FOREIGN KEY(PRESCRIPTION_ID) REFERENCES PRESCRIPTION(ID),
+ AMOUNT INT NOT NULL,
 OUANTITY INT NOT NULL);
