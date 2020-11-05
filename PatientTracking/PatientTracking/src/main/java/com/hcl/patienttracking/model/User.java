@@ -37,6 +37,10 @@ public class User {
 	//@NotEmpty
 	@Column//(name="GENDER")
 	  private String gender;
+	@Column
+	private String emailId;
+	@Column
+	private String password;
     //@NotEmpty
 	@Column//(name="PHONE_NUMBER")
 	 long phoneNumber;
@@ -59,12 +63,14 @@ public class User {
     * @param gender
     * @param phoneNumber
     */
-public User(int id,String firstName, String lastName, int age, String gender, long phoneNumber,int roleId) {
+public User(int id,String firstName, String lastName, int age, String gender, String emailId,String password,long phoneNumber,int roleId) {
 	super(); 
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
 	this.gender = gender;
+	this.emailId=emailId;
+	this.password=password;
 	this.phoneNumber = phoneNumber;
 }
 
@@ -103,6 +109,18 @@ public long getPhoneNumber() {
 }
 public void setPhoneNumber(long phoneNumber) {
 	this.phoneNumber = phoneNumber;
+}
+public String getEmailId() {
+	return emailId;
+}
+public void setEmailId(String emailId) {
+	this.emailId = emailId;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
 }
 public int getRoleId() {
 	return roleId;

@@ -48,5 +48,27 @@ public class UserController {
 	public ModelAndView add() {
 		return new ModelAndView("registration","user",new User());
 	}
+	 @RequestMapping(value = "/Login", method = RequestMethod.POST)
+		public ModelAndView add1(@ModelAttribute @Valid User user,BindingResult result) {
+			if(result.hasErrors()) {
+			//if (userService.register(user))
+				return new ModelAndView("registration");
+			}
+			else {
+				if(userService.login(user)) {
+					return new ModelAndView("LoginSuccess");
+				}
+				else {
+				return new ModelAndView("Loginfailure");
+				}
+		}
+	    }
+		
+		@RequestMapping("/Login")
+		public ModelAndView add1() {
+			return new ModelAndView("Login","user",new User());
+		}
+	    
+	
 	
 }	

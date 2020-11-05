@@ -1,19 +1,34 @@
 package com.hcl.patienttracking.model;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Topic:Spring_Hibernate
  * 
  * @author srimathi
  * 
- * This class has to get the details of medicine information such as medicineid,medicinename,price,expirydate.
+ * This class has to get the details of medicine information such as id,medicine name,price,expiry date.
  *
  */
+@Entity
+@Table(name="medicine")
 public class Medicine {
-   int medicineId;
-   String medicineName;
-   int price;
-   Date expirydate;
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+   private int id;
+	@Column
+   private String medicineName;
+	@Column
+  private  int price;
+	@Column
+   private Date expirydate;
    /**
     * This is for default constructor
     */
@@ -22,23 +37,23 @@ public Medicine() {
 }
 /**
  * This is for paramaterizedd constructor
- * @param medicineId
+ * @param id
  * @param medicineName
  * @param price
  * @param expirydate
  */
-public Medicine(int medicineId, String medicineName, int price, Date expirydate) {
+public Medicine(int id, String medicineName, int price, Date expirydate) {
 	super();
-	this.medicineId = medicineId;
+	this.id = id;
 	this.medicineName = medicineName;
 	this.price = price;
 	this.expirydate = expirydate;
 }
-public int getMedicineId() {
-	return medicineId;
+public int getId() {
+	return id;
 }
-public void setMedicineId(int medicineId) {
-	this.medicineId = medicineId;
+public void setid(int id) {
+	this.id =id;
 }
 public String getMedicineName() {
 	return medicineName;

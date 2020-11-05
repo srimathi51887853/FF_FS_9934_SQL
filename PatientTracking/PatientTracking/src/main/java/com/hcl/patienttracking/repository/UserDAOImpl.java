@@ -36,6 +36,8 @@ public class UserDAOImpl implements UserDAO {
 		user.setLastName(u.getLastName());
 		user.setAge(u.getAge());
 		user.setGender(u.getGender());
+		user.setEmailId(u.getEmailId());
+		user.setPassword(u.getPassword());
 		user.setPhoneNumber(u.getPhoneNumber());
 		user.setRoleId(u.getRoleId());
 		session.save(user);
@@ -45,7 +47,10 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 		
 	}
-	
+	public boolean login(User user) {
+		return true;
+		
+	}
 	
 	//public List<User> list() {
 	//	 Session session = HibernateUtil.getSessionFactory().openSession();

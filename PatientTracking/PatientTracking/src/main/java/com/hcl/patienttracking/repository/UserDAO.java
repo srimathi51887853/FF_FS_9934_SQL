@@ -19,6 +19,7 @@ import com.hcl.patienttracking.model.User;
 @Component
 public interface UserDAO {
 	boolean register(User user);
+	boolean login(User user);
 }
 
 

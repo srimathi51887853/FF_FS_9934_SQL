@@ -1,19 +1,34 @@
 package com.hcl.patienttracking.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * Topic:Spring_Hibernate
  * 
  * @author srimathi
  * 
- * This class has to get the prescription details as patientid,patientname,quantity,medicineid.
+ * This class has to get the prescription details as id,patient name,quantity,medicineid.
  *
  */
+@Entity
+@Table(name="Prescription")
 public class Prescription {
-int patientId;
-int medicineId;
-String patientName;
-int Quantity;
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+private int id;
+	@Column
+private int medicineId;
+	@Column
+private String patientName;
+	@Column
+private int Quantity;
 /**
  * This is for default constructor
  */
@@ -27,18 +42,18 @@ public Prescription() {
  * @param patientName
  * @param quantity
  */
-public Prescription(int patientId, int medicineId, String patientName, int quantity) {
+public Prescription(int id, int medicineId, String patientName, int quantity) {
 	super();
-	this.patientId = patientId;
+	this.id = id;
 	this.medicineId = medicineId;
 	this.patientName = patientName;
 	Quantity = quantity;
 }
-public int getPatientId() {
-	return patientId;
+public int getId() {
+	return id;
 }
-public void setPatientId(int patientId) {
-	this.patientId = patientId;
+public void setId(int id) {
+	this.id = id;
 }
 public int getMedicineId() {
 	return medicineId;

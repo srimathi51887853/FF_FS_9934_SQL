@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login Failure</title>
+<title>Login Success</title>
 </head>
 <body>
-	<h3>Dear User,You have not successfully registered.</h3>
+	<h3>Dear User,You have successfully registered.</h3>
+	<h4><a href="/PatientTracking/user/Login">Login</a></h4>
 	
 </body>
 </html>
