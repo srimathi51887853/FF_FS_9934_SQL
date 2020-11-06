@@ -48,27 +48,65 @@ public class UserController {
 	public ModelAndView add() {
 		return new ModelAndView("registration","user",new User());
 	}
-	 @RequestMapping(value = "/Login", method = RequestMethod.POST)
-		public ModelAndView add1(@ModelAttribute @Valid User user,BindingResult result) {
-			if(result.hasErrors()) {
-			//if (userService.register(user))
-				return new ModelAndView("registration");
+	
+	@RequestMapping(value = "/AddClerk", method = RequestMethod.POST)
+	public ModelAndView add1(@ModelAttribute User user) {
+			if(userService.register(user)) {
+				return new ModelAndView("LoginSuccess");
 			}
 			else {
+			return new ModelAndView("Loginfailure");
+			}
+	}
+	
+	@RequestMapping("/AddClerk")
+	public ModelAndView add1() {
+		return new ModelAndView("AddClerk","user",new User());
+	}
+	
+	
+
+	 @RequestMapping(value = "/Login", method = RequestMethod.POST)
+		public ModelAndView add2(@ModelAttribute @Valid User user) {
 				if(userService.login(user)) {
 					return new ModelAndView("LoginSuccess");
 				}
 				else {
 				return new ModelAndView("Loginfailure");
 				}
-		}
 	    }
-		
-		@RequestMapping("/Login")
-		public ModelAndView add1() {
+	 
+	 @RequestMapping("/Login")
+		public ModelAndView add2() {
 			return new ModelAndView("Login","user",new User());
 		}
-	    
+	 @RequestMapping(value = "/AddDoctor", method = RequestMethod.POST)
+		public ModelAndView add3(@ModelAttribute User user) {
+				if(userService.register(user)) {
+					return new ModelAndView("LoginSuccess");
+				}
+				else {
+				return new ModelAndView("Loginfailure");
+				}
+		}
+		
+		@RequestMapping("/AddDoctor")
+		public ModelAndView add3() {
+			return new ModelAndView("AddDoctor","user",new User());
+		}
 	
-	
+		 @RequestMapping(value = "/AddPatient", method = RequestMethod.POST)
+			public ModelAndView add4(@ModelAttribute User user) {
+					if(userService.register(user)) {
+						return new ModelAndView("LoginSuccess");
+					}
+					else {
+					return new ModelAndView("Loginfailure");
+					}
+			}
+			
+			@RequestMapping("/AddPatient")
+			public ModelAndView add4() {
+				return new ModelAndView("AddPatient","user",new User());
+			}
 }	

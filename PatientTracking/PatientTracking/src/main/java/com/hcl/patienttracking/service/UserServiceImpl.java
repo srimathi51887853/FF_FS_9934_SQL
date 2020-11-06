@@ -8,11 +8,10 @@ import com.hcl.patienttracking.model.User;
 import com.hcl.patienttracking.repository.UserDAOImpl;
 
 /**
- * Day#:44
  * 
  * This class is to register the user.
  * 
- * @author kasthuri.s
+ * @author srimathi
  *
  */
 @Component

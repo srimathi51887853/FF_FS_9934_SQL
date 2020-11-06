@@ -48,7 +48,7 @@ public Bill(int medicineId, String medicineName, String patientName,int quantity
 	this.medicineName = medicineName;
 	this.patientName = patientName;
 	this.quantity = quantity;
-	Amount = amount;
+	this.Amount = amount;
 }
 public int getMedicineId() {
 	return medicineId;

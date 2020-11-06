@@ -19,7 +19,7 @@ public class MedicineController {
 	@Autowired
 	MedicineService medicineservice;
 	
-	@RequestMapping(value="/registration",method=RequestMethod.POST)
+	@RequestMapping(value="/AddMedicine",method=RequestMethod.POST)
 	public ModelAndView add(@ModelAttribute Medicine medicine) {
 		if (medicineservice.register(medicine)){
 			return new ModelAndView("LoginSuccess");
@@ -28,9 +28,9 @@ public class MedicineController {
 		}
 	}
 	
-	@RequestMapping("/registration")
+	@RequestMapping("/AddMedicine")
 	public ModelAndView add() {
-		return new ModelAndView("registration","user",new Medicine());
+		return new ModelAndView("AddMedicine","medicine",new Medicine());
 	}
 	
 }	

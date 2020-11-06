@@ -12,17 +12,18 @@
 <body>
 	<div align="center">
 		<h1>Welcome to Registration Page</h1>
-		<form action="registration" method="post" modelAttribute="user">
+		<form:form action="registration" method="post" modelAttribute="user">
 <table border=1>
 				<tr>
 					<td>FirstName</td>
-					<td><input type="text" name="firstName" style="width: 120px"/><font color="red">
-					</font>
+					<td><form:input type="text" path="firstName" style="width: 120px"/>
+					<font color="red"><form:errors path="firstName"/></font>
 					</td>
 				</tr>
 				<tr>
 					<td>LastName</td>
-					<td><input type="text" name="lastName" style="width: 120px"/><font color="red">
+					<td><form:input type="text" path="lastName" style="width: 120px"/>
+					<font color="red"><form:errors path="lastName"/>
 					</font>
 					</td>
 				</tr>
@@ -40,13 +41,15 @@
 				</tr>
 				<tr>
 					<td>EmailId</td>
-					<td><input type="text" name="emailId" style="width: 120px"/><font color="red">
+					<td><form:input type="text" path="emailId" style="width: 120px"/>
+					<font color="red"><form:errors path="emailId"/>
 					</font>
 							</td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="text" name="password" style="width: 120px"/><font color="red">
+					<td><form:input type="password" path="password" style="width: 120px"/>
+					<font color="red"><form:errors path="password"/>
 					</font>
 							</td>
 				</tr>
@@ -73,7 +76,8 @@
 			</table>
 
 			<input type="submit" value="Register">
-</form>
+
+		</form:form>
 	</div>
 </body>
 </html>

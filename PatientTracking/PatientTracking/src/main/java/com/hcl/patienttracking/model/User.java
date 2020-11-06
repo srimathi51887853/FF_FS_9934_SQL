@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Range;
 //import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Pattern;
 
@@ -27,25 +30,26 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column//(name="FIRST_NAME")
+	@NotEmpty
 	private String firstName;
-	//@NotEmpty
+	@NotEmpty
 	@Column//(name="LAST_NAME")
 	private String lastName;
-	//@NotEmpty
 	@Column//(name="AGE")
 	 private int age;
-	//@NotEmpty
 	@Column//(name="GENDER")
 	  private String gender;
 	@Column
+	@NotEmpty
 	private String emailId;
+	@NotEmpty
 	@Column
 	private String password;
     //@NotEmpty
 	@Column//(name="PHONE_NUMBER")
 	 long phoneNumber;
 	@Column//(name="ROLEID")
-	//@Range(min=1)
+	@Range(min=1)
 	private int roleId;
    
   

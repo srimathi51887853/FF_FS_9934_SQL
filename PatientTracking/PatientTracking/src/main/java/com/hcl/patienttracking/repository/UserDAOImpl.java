@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
@@ -47,8 +48,26 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 		
 	}
+	@Override
 	public boolean login(User user) {
-		return true;
+	boolean check=true;
+	try {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Query query=session.createQuery("from User u");
+		List<User> result=query.list();
+		for(User u : result) {
+			if(u.getEmailId().equals(user.getEmailId())&& u.getPassword().equals(user.getPassword())) {
+				check=true;
+		}
+		}
+	session.getTransaction().commit();
+	return check;
+	}
+	catch(Exception e) {
+		System.out.println("Not a valid user"+e.getMessage());
+		return check;
+	}
 		
 	}
 	

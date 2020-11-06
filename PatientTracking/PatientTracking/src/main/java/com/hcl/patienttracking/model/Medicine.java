@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Topic:Spring_Hibernate
@@ -24,6 +25,7 @@ public class Medicine {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
    private int id;
 	@Column
+	@NotEmpty
    private String medicineName;
 	@Column
   private  int price;

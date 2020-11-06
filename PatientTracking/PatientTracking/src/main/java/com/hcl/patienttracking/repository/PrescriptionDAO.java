@@ -13,9 +13,14 @@ public class PrescriptionDAO {
 	Prescription prescription=new Prescription();
 	
 	
-	public boolean register(Prescription prescription) {
+	public boolean register(Prescription p) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
+		prescription.setId(p.getId());
+		prescription.setMedicineId(p.getMedicineId());
+		prescription.setPatientName(p.getPatientName());
+		prescription.setQuantity(p.getQuantity());
+		
 		
 		session.save(prescription);
 

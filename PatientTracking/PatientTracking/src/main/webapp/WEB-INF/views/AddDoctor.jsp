@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ClerkDetails</title>
+<title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-		<h1>Add Clerk Details</h1>
-		<form action="AddClerk" method="post" modelAttribute="user">
+		<h1>Add Doctor Details</h1>
+		<form action="AddDoctor" method="post" modelAttribute="user">
 <table border=1>
                  <tr>
-					<td>ClerkId</td>
+					<td>DoctorId</td>
 					<td><input type="number" name="id" style="width: 120px"/><font color="red">
 					</font>
 					</td>

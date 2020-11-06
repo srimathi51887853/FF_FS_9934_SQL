@@ -18,7 +18,7 @@ public class PrescriptionController {
 	@Autowired
 	PrescriptionService prescriptionservice;
 	
-	@RequestMapping(value="/registration",method=RequestMethod.POST)
+	@RequestMapping(value="/AddPrescription",method=RequestMethod.POST)
 	public ModelAndView add(@ModelAttribute Prescription prescription) {
 		if (prescriptionservice.register(prescription)){
 			return new ModelAndView("LoginSuccess");
@@ -27,9 +27,9 @@ public class PrescriptionController {
 		}
 	}
 	
-	@RequestMapping("/registration")
+	@RequestMapping("/AddPrescription")
 	public ModelAndView add() {
-		return new ModelAndView("registration","user",new Prescription());
+		return new ModelAndView("AddPrescription","prescription",new Prescription());
 	}
 	
 }	

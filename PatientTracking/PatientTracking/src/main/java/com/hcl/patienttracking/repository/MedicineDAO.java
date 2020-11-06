@@ -12,9 +12,13 @@ public class MedicineDAO {
 	Medicine medicine=new Medicine();
 	
 	
-	public boolean register(Medicine medicine) {
+	public boolean register(Medicine m) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
+		medicine.setid(m.getId());
+		medicine.setMedicineName(m.getMedicineName());
+		medicine.setExpirydate(m.getExpirydate());
+		medicine.setPrice(m.getPrice());
 		
 		session.save(medicine);
 
@@ -23,4 +27,5 @@ public class MedicineDAO {
 		return true;
 		
 	}
+	
 }

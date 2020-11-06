@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * 
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="Prescription")
+@Table(name="prescription")
 public class Prescription {
 	@Id
 	@Column(name="id")
@@ -25,10 +26,11 @@ public class Prescription {
 private int id;
 	@Column
 private int medicineId;
-	@Column
+	@Column 
+	@NotEmpty
 private String patientName;
 	@Column
-private int Quantity;
+private int quantity;
 /**
  * This is for default constructor
  */
@@ -47,7 +49,7 @@ public Prescription(int id, int medicineId, String patientName, int quantity) {
 	this.id = id;
 	this.medicineId = medicineId;
 	this.patientName = patientName;
-	Quantity = quantity;
+	this.quantity = quantity;
 }
 public int getId() {
 	return id;
@@ -68,9 +70,9 @@ public void setPatientName(String patientName) {
 	this.patientName = patientName;
 }
 public int getQuantity() {
-	return Quantity;
+	return quantity;
 }
 public void setQuantity(int quantity) {
-	Quantity = quantity;
+	this.quantity = quantity;
 }
 }
