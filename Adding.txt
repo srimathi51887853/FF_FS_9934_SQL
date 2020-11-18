@@ -1,5 +1,12 @@
 class add{
 add(int i,int j){
 return i+j;
+add(int i,int j,intk){
+if(i>0 && j>0 && k>0){
+return i+j+k;
+}
+else{
+return 0;
+}
 }
 }
